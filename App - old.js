@@ -55,3 +55,32 @@ const heading = React.createElement(
     console.log(heading);
         const root = ReactDOM.createRoot(document.getElementById('root'))
         root.render(heading)
+
+
+        import React from "react";
+import ReactDOM from "react-dom";
+
+// JSX => Babel transpiles it to React.createElement => ReactElement -js Object => Html Element (render)
+
+// React Element
+// const heading = (<h1 className="head"> 
+// I am Element from JSX 
+// </h1>);
+
+// React Components
+
+// const Title = () => (
+//     <div className="title-container">
+//         <h1>Welcome to React Components</h1>
+//     </div>
+// )
+// const HeadingComponent = () => (
+//     <div className="container">
+//         {heading}
+//         <Title/>
+//     <h1 className="heading"> Hello I am React Functional Component</h1>
+//     </div>
+// )
+
+// const root = ReactDOM.createRoot(document.getElementById("root"));
+// root.render(<HeadingComponent/>);
