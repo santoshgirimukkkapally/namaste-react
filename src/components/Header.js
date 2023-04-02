@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { IMG_CDN_URL } from '../constants'
+import { Link } from 'react-router-dom'
 
 const loggedInUser = () => {
     //API for Authontication goes here
@@ -14,9 +15,9 @@ const Header = () => {
     </a>
     <div className="nav-items"> 
     <ul className="_1JNGZ">
-        <li>Home</li>
-        <li>About</li>
-        <li>Contact</li>
+        <li><Link to="/">Home</Link></li>
+        <li><Link to="/about">About</Link></li>
+        <li><Link to="/contact">Contact</Link></li>
         <li>Cart</li>
     </ul>
     </div>

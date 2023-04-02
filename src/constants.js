@@ -1,5 +1,8 @@
 export const IMG_CDN_URL = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTIztwNabJTVTDrNKJqsKKtBXJ9RcyK2UVtXg&usqp=CAU';
 export const IMG_RESTO_CARD = 'https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_508,h_320,c_fill/'
+export const RESTO_CARD_ITEMS_FIRST_PART = 'https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=17.403377&lng=78.492077&restaurantId='
+export const RESTO_CARD_ITEMS_SECOND_PART = '&submitAction=ENTER'
+
 export const restaurantList= [{
     "data": {"type": "F",
     "id": "34634",
