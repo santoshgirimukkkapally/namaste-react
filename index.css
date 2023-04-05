@@ -1,5 +1,11 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* 
 a{
   text-decoration: none;
+  cursor: pointer;
 }
 .header{
     display: flex;
@@ -66,6 +72,7 @@ a{
 }
 .search{
     padding: 20px;
+    margin-left: 38.5%;
 
 }
 .res-card{
@@ -146,7 +153,7 @@ width: 100%;
 }
 
 
-/* footer */
+footer 
 
 .site-footer
 {
@@ -322,3 +329,4 @@ width: 100%;
   color: black;
 
 }
+ */
