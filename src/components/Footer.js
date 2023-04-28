@@ -1,11 +1,11 @@
 const Footer = () => {
   return (
     <>
-    <footer className="flex w-full h-20">
+    <footer  className="flex w-full h-20">
         <div className="w-full">
           <div className="w-1/2 float-left p-16  bg-slate-200">
             <p className="copyright-text">Copyright &copy; 2017 All Rights Reserved by 
-         <a href="#">Swiggy</a>.
+         <a href="#" data-testid="footer">Swiggy</a>.
             </p>
           </div>
 

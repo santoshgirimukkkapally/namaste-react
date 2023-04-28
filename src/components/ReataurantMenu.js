@@ -4,10 +4,18 @@ import { useState, useEffect } from "react";
 import { IMG_RESTO_CARD, RESTO_CARD_ITEMS_FIRST_PART, RESTO_CARD_ITEMS_SECOND_PART } from '../constants'
 
 import Shimmer from './Shimmer'
+import { addItems } from "../utils/cartSlice";
+import { useDispatch } from "react-redux";
 
 const RestaurantMenu = () => {
 const params = useParams();
 const { id } = params;
+
+const dispatch = useDispatch();
+const handleAddItem = (item) => {
+    dispatch(addItems(item));
+}
+
 // const restaurant = useRestaurant(id);
 const [restaurant, setRestaurant] = useState(null);
 const [restaurantItems, setRestaurantItems] = useState(null);
@@ -36,14 +44,32 @@ const [restaurantItems, setRestaurantItems] = useState(null);
             <p className="text-left p-1 text-xs">{restaurant?.city}</p>
             <h1 className="text-left p-1 text-xs">Restaurant id : {id}</h1>
             <img alt="restraurant image" src={IMG_RESTO_CARD + restaurant?.cloudinaryImageId}  />
-            <ul> 
+            <ul data-testid="menu"> 
             {
                 restaurantItems?.map((items, index) => { 
-                    return <li className="py-2 border-b-2" key ={index}> {items?.card?.card?.title}</li>
+                    return <li className="py-2 border-b-2" key ={index}> {items?.card?.card?.title}
+                    {items?.card?.card?.title && <button data-testid="addBtn" className="float-right hover:shadow-2xl cursor-pointer w-12 h-full rounded-md text-xs p-1 shadow-lg" onClick={() => handleAddItem(items?.card?.card?.title)}>Add</button>}
+                    </li>
 
                 })
             }
             </ul>
+
+
+            {/* <ul data-testid="menu"> 
+            {
+                restaurantItems?.map((items) => { 
+                    items?.card?.card?.itemCards?.map((items) => {   
+                    console.log('msp', items?.card?.info?.name)
+                        return <li className="py-2 border-b-2" key ={items?.card?.info?.id}> {items?.card?.info?.name}
+                        {items?.card?.info?.name && <button data-testid="addBtn" className="float-right hover:shadow-2xl cursor-pointer w-12 h-full rounded-md text-xs p-1 shadow-lg" onClick={() => handleAddItem(items?.card?.info?.name)}>Add</button>}
+                        </li>
+                    })
+                    
+
+                })
+            }
+            </ul> */}
 
         </div>
     )

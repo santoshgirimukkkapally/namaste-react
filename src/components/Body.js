@@ -7,13 +7,11 @@ import useOnline from "../utils/useOnline"
 
 
 
-
-
 function filterData(searchText, allRestroList) {
   const filterData = allRestroList.filter((restaurant) =>
     restaurant?.data?.name?.toLowerCase()?.includes(searchText.toLowerCase())
   );
-  console.log("filterData", filterData);
+  // console.log("filterData", filterData);
   return filterData;
 }
 
@@ -36,7 +34,7 @@ const Body = () => {
     //optional chaining ?
     const restoData = json?.data?.cards[2]?.data?.data?.cards;
 
-    console.log("data", restoData);
+    // console.log("data", restoData);
     setFilteredRestroList(restoData)
     setAllRestroList(restoData);
   }
@@ -62,22 +60,24 @@ const Body = () => {
             placeholder="Search"
             name="search"
             value={searchText}
+            data-testid="search-input"
             onChange={(e) => setSearchText(e.target.value)}
           ></input>
           <button
             name="search"
+            data-testid="search-btn"
             className="ml-2"
             onClick={() => {
               const data = filterData(searchText, allRestroList);
               setFilteredRestroList(data);
             }}
           >
-            <i class="fa fa-search"></i>
+            <i className="fa fa-search"></i>
           </button>
         </div>
-        <div className="flex flex-wrap">
+        <div className="flex flex-wrap ml-7" data-testid="res-list">
           {filteredRestroList.map((myList) => {
-              return <Link key={myList.data.id}  to={"/restaurant/" + myList.data.id}><RestaurantCard { ...myList} /></Link>;
+              return <Link key={myList.data.id}  to={"/restaurant/" + myList.data.id}><RestaurantCard { ...myList}/></Link>;
           })}
         </div>
       </div>
